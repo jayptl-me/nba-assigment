@@ -29,6 +29,51 @@ This is a full-stack web application that displays upcoming NBA matches fetched 
 - ⚖️ Rate limiting to prevent abuse
 - 📝 Request logging
 - 🌐 Configurable CORS settings
+- 🔍 Player search with team filtering
+- 📊 Team information by conference and division
+- 📈 Tier-based feature availability detection
+- 🧩 Tab-based navigation between app sections
+
+## API Endpoints
+
+The backend server exposes the following endpoints:
+
+### Base URL
+
+```
+http://localhost:5000/api
+```
+
+### Games
+
+| Endpoint            | Method | Description                        | Query Parameters                    | Auth Required       |
+| ------------------- | ------ | ---------------------------------- | ----------------------------------- | ------------------- |
+| `/games/upcoming`   | GET    | Get upcoming NBA games             | -                                   | Yes                 |
+| `/games/live`       | GET    | Get live NBA games with box scores | -                                   | Yes (GOAT tier)     |
+| `/games/box_scores` | GET    | Get box scores for a specific date | `date` (YYYY-MM-DD)                 | Yes (GOAT tier)     |
+| `/games/stats`      | GET    | Get detailed game statistics       | `game_ids`, `player_ids`, `seasons` | Yes (ALL-STAR tier) |
+
+### Teams
+
+| Endpoint     | Method | Description                     | Query Parameters         | Auth Required |
+| ------------ | ------ | ------------------------------- | ------------------------ | ------------- |
+| `/teams`     | GET    | Get all NBA teams               | `division`, `conference` | Yes           |
+| `/teams/:id` | GET    | Get details for a specific team | -                        | Yes           |
+
+### Players
+
+| Endpoint                   | Method | Description                       | Query Parameters                                                    | Auth Required   |
+| -------------------------- | ------ | --------------------------------- | ------------------------------------------------------------------- | --------------- |
+| `/players`                 | GET    | Search for NBA players            | `search`, `first_name`, `last_name`, `team_ids`, `per_page`, `page` | Yes             |
+| `/players/:id`             | GET    | Get details for a specific player | -                                                                   | Yes             |
+| `/players/season_averages` | GET    | Get player season averages        | `season`, `season_type`, `type`, `player_ids`                       | Yes (GOAT tier) |
+
+### System
+
+| Endpoint  | Method | Description  | Query Parameters | Auth Required |
+| --------- | ------ | ------------ | ---------------- | ------------- |
+| `/health` | GET    | Health check | -                | No            |
+
 - 🎭 Demo mode when no games are scheduled
 
 ## API Information

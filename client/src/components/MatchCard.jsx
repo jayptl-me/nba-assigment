@@ -1,26 +1,24 @@
-import React from 'react';
-import moment from 'moment';
+import React from 'react'
+import moment from 'moment'
 
 const MatchCard = ({ match }) => {
   const formatDate = (dateString) => {
-    return moment(dateString).format('MMMM Do, YYYY');
-  };
+    return moment(dateString).format('MMMM Do, YYYY')
+  }
 
   const formatTime = (dateString) => {
-    return moment(dateString).format('h:mm A');
-  };
+    return moment(dateString).format('h:mm A')
+  }
 
   const getStatusClass = (status) => {
     if (status === 'Final') {
-      return 'status-final';
+      return 'status-final'
     } else if (status.includes('Qtr') || status === 'Halftime') {
-      return 'status-live';
+      return 'status-live'
     } else {
-      return 'status-upcoming';
+      return 'status-upcoming'
     }
-  };
-
-
+  }
 
   return (
     <div className={`match-card ${match.demo ? 'demo-card' : ''}`}>
@@ -73,7 +71,7 @@ const MatchCard = ({ match }) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MatchCard;
+export default MatchCard

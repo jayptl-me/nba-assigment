@@ -19,8 +19,47 @@
 2. Replace `your_api_key_here` with your actual API key:
    ```
    API_KEY=abc123def456ghi789jkl012mno345pqr678
-   PORT=5000
    ```
+
+## API Subscription Tiers
+
+Ball Don't Lie offers different subscription tiers with varying rate limits and access to different endpoints:
+
+| Tier     | Requests/Min | Cost (USD/mo) |
+| -------- | ------------ | ------------- |
+| Free     | 5            | $0            |
+| ALL-STAR | 60           | $9.99         |
+| GOAT     | 600          | $39.99        |
+
+### Available Endpoints by Tier
+
+#### Free Tier
+
+- Teams
+- Players
+- Games
+
+#### ALL-STAR Tier
+
+- All Free tier endpoints
+- Game Player Stats
+- Active Players
+- Player Injuries
+
+#### GOAT Tier
+
+- All ALL-STAR tier endpoints
+- Season Averages
+- Game Advanced Stats
+- Box Scores
+- Team Standings
+- Leaders
+- Betting Odds
+
+Our application is designed to work with the free tier, but will automatically enable additional features if you have a higher tier subscription.
+PORT=5000
+
+````
 3. Save the file
 
 ## Free Tier Limits
@@ -41,6 +80,6 @@ After setting up your API key, start the application with:
 
 ```bash
 npm run dev
-```
+````
 
 If everything is working correctly, you should see NBA games loading in the browser at http://localhost:3000
